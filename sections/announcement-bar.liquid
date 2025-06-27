@@ -21,7 +21,7 @@
 <div
   class="utility-bar color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator and section.blocks.size > 0 %} utility-bar--bottom-border{% elsif section.settings.show_line_separator and section.settings.show_social and social_icons%} utility-bar--bottom-border-social-only{% endif %}{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header-localization{% endif %}"
 >
-  <div class="page-width utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
+  <div class="utility-bar__grid{% if announcement_bar and language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--3-col{% elsif language_country_selector or section.settings.show_social and social_icons %} utility-bar__grid--2-col{% endif %}">
     {%- if section.settings.show_social and social_icons -%}
       {%- render 'social-icons' -%}
     {%- endif -%}
@@ -39,12 +39,43 @@
               class="announcement-bar__link link link--text focus-inset animate-arrow"
             >
           {%- endif -%}
-          <p class="announcement-bar__message h5">
-            <span>{{ section.blocks.first.settings.text | escape }}</span>
-            {%- if section.blocks.first.settings.link != blank -%}
-              {{- 'icon-arrow.svg' | inline_asset_content -}}
-            {%- endif -%}
-          </p>
+
+          <div class="marquee marquee--hover-pause h5">
+            <ul class="marquee__content">
+              <li>{{ section.blocks.first.settings.text | escape }}</li>
+              <li>{{ section.blocks.first.settings.text | escape }}</li>
+              <li>{{ section.blocks.first.settings.text | escape }}</li>
+            </ul>
+
+            <ul aria-hidden="true" class="marquee__content">
+              <li>{{ section.blocks.first.settings.text | escape }}</li>
+              <li>{{ section.blocks.first.settings.text | escape }}</li>
+              <li>{{ section.blocks.first.settings.text | escape }}</li>
+            </ul>
+          </div>
+
+          {% comment %}
+            <div class="announcement-marquee">
+              <p class="announcement-bar__message h5">
+                <span>{{ section.blocks.first.settings.text | escape }}</span>
+                {%- if section.blocks.first.settings.link != blank -%}
+                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                {%- endif -%}
+              </p>
+              <p class="announcement-bar__message h5">
+                <span>{{ section.blocks.first.settings.text | escape }}</span>
+                {%- if section.blocks.first.settings.link != blank -%}
+                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                {%- endif -%}
+              </p>
+              <p class="announcement-bar__message h5">
+                <span>{{ section.blocks.first.settings.text | escape }}</span>
+                {%- if section.blocks.first.settings.link != blank -%}
+                  {{- 'icon-arrow.svg' | inline_asset_content -}}
+                {%- endif -%}
+              </p>
+            </div>
+          {% endcomment %}
           {%- if section.blocks.first.settings.link != blank -%}
             </a>
           {%- endif -%}
@@ -127,7 +158,7 @@
         </div>
       </slideshow-component>
       {%- if request.design_mode -%}
-        <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
+        <scrip% src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
         <style>
           /* theme editor power preview fix */
           .announcement-bar-slider .slider__slide[aria-hidden='true'] {
@@ -162,6 +193,24 @@
   </div>
 </div>
 
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function () {
+    const marqueeContainer = document.querySelector('.marquee');
+    const marqueeItems = document.querySelectorAll('.marquee__content li');
+    const customLink = marqueeContainer ? marqueeContainer.dataset.customLink : '';
+
+    marqueeItems.forEach(function (item) {
+      const emailRegex = /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9_-]+)/g;
+      const text = item.innerHTML;
+
+      if (emailRegex.test(text)) {
+        const newText = text.replace(emailRegex, '<a href="mailto:$1" target="_blank">$1</a>');
+        item.innerHTML = newText;
+      }
+    });
+  });
+{% endjavascript %}
+
 {% schema %}
 {
   "name": "t:sections.announcement-bar.name",
@@ -186,13 +235,13 @@
       "unit": "s",
       "label": "t:sections.announcement-bar.settings.change_slides_speed.label",
       "default": 5
-    },    
+    },
     {
       "type": "color_scheme",
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-4"
-    },  
+    },
     {
       "type": "checkbox",
       "id": "show_line_separator",
@@ -205,8 +254,8 @@
     },
     {
       "type": "paragraph",
-         "content": "t:sections.announcement-bar.settings.paragraph.content"
-    },             
+      "content": "t:sections.announcement-bar.settings.paragraph.content"
+    },
     {
       "type": "checkbox",
       "id": "show_social",
