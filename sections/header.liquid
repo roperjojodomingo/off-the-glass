@@ -101,6 +101,7 @@
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
+<script src="{{ 'hoverable-menu.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   for block in section.blocks
@@ -647,6 +648,45 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 20
+    },
+    {
+      "type": "header",
+      "content": "Mega menu"
+    },
+    {
+      "type": "collection",
+      "id": "featured_collection",
+      "label": "Featured collection"
+    },
+    {
+      "type": "color_scheme",
+      "id": "featured_collection_color",
+      "label": "Featured collection color scheme"
+    },
+    {
+      "type": "text",
+      "id": "featured_collection_heading",
+      "label": "Featured collection heading"
+    },
+    {
+      "type": "text",
+      "id": "featured_collection_text",
+      "label": "Featured collection text"
+    },
+    {
+      "type": "image_picker",
+      "id": "featured_collection_image",
+      "label": "Featured collection image"
+    },
+    {
+      "type": "image_picker",
+      "id": "about_us_image",
+      "label": "About us image"
+    },
+    {
+      "type": "image_picker",
+      "id": "team_image",
+      "label": "The team image"
     }
   ],
   "blocks": [

@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Welcome to our store",
+            "text": "Every order is packed with care and shipped out fast. Questions? Send them our way: hello@offtheglass.com.",
             "link": ""
           }
         }
@@ -28,7 +28,7 @@
       "settings": {
         "auto_rotate": false,
         "change_slides_speed": 5,
-        "color_scheme": "scheme-1",
+        "color_scheme": "scheme-bb339a97-f86d-4e47-914b-69f3e4127793",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,
@@ -38,20 +38,27 @@
     "header": {
       "type": "header",
       "settings": {
-        "logo_position": "middle-left",
+        "logo_position": "middle-center",
         "mobile_logo_position": "center",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "always",
         "show_line_separator": true,
-        "color_scheme": "scheme-1",
-        "menu_color_scheme": "scheme-1",
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "enable_customer_avatar": true,
+        "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
+        "menu_color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "enable_customer_avatar": false,
         "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "featured_collection": "sample-collection",
+        "featured_collection_color": "scheme-4",
+        "featured_collection_heading": "This Week’s MVP",
+        "featured_collection_text": "Fresh team-inspired gear",
+        "featured_collection_image": "shopify://shop_images/warriors_76c2984d-43a2-4852-ba0d-1b4dc69197dc.jpg",
+        "about_us_image": "shopify://shop_images/about_us.png",
+        "team_image": "shopify://shop_images/team.png"
       }
     }
   },

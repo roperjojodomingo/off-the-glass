@@ -2402,7 +2402,7 @@ input[type="checkbox"] {
 }
 
 .header-wrapper--border-bottom {
-  border-bottom: 0.1rem solid rgba(var(--color-foreground), 0.08);
+  /* border-bottom: 0.1rem solid rgba(var(--color-foreground), 1); */
 }
 
 .header {
@@ -2859,7 +2859,7 @@ details[open] > .header__submenu {
 .header__menu-item {
   padding: 1.2rem;
   text-decoration: none;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgb(var(--color-foreground));
 }
 
 .header__menu-item:hover {
@@ -2867,16 +2867,31 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item span {
-  transition: text-decoration var(--duration-short) ease;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
-.header__menu-item:hover span {
-  text-decoration: underline;
-  text-underline-offset: 0.3rem;
+.header__menu-item span::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background-color: currentColor;
+  transition: width 0.3s ease, left 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.header__menu-item:hover span::after {
+  width: 100%;
+  left: 50%;
 }
 
 details[open] > .header__menu-item {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 details[open]:hover > .header__menu-item {
@@ -2935,7 +2950,7 @@ details[open] > .header__menu-item .icon-caret {
 }
 
 .header__submenu .header__menu-item:hover {
-  text-decoration-line: underline;
+  /* text-decoration-line: underline; */
 }
 
 .header__menu-item .icon-caret {

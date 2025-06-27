@@ -23,7 +23,6 @@
                 >
                   {{- link.title | escape -}}
                 </span>
-                {{- 'icon-caret.svg' | inline_asset_content -}}
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
@@ -31,29 +30,93 @@
                 tabindex="-1"
               >
                 <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                  class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
                   role="list"
                 >
                   {%- for childlink in link.links -%}
-                    <li>
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
-                      </a>
+                    {%- liquid
+                      assign title = childlink.title | downcase
+                    %}
+                    <li class="{% if title == 'featured collection' or title == 'about us' or title == 'the off the glass team' %}mega-menu-image{% endif %}">
+                      {% if childlink.title != '#' %}
+                        {% if title == 'featured collection' %}
+                          {% if section.settings.featured_collection != null %}
+                            <div class="featured-collection-container color-{{ section.settings.featured_collection_color }}">
+                              <a href="{{ section.settings.featured_collection.url }}" class="link-over-image">
+                                {% if section.settings.featured_collection_image != blank %}
+                                  <img
+                                    src="{{ section.settings.featured_collection_image | image_url }}"
+                                    alt="Featured Collection"
+                                    class="fit-cover"
+                                    width="{{ section.settings.featured_collection_image.width }}"
+                                    height="{{ section.settings.featured_collection_image.height }}"
+                                  >
+                                  <div class="image-text-overlay">
+                                    <h2>{{ section.settings.featured_collection_heading }}</h2>
+                                    <p>{{ section.settings.featured_collection_text }}</p>
+                                  </div>
+                                {% endif %}
+                              </a>
+                            </div>
+                          {% endif %}
+                        {% elsif title == 'about us' %}
+                          <div class="featured-collection-container color-{{ section.settings.featured_collection_color }}">
+                            <a href="{{ childlink.url }}" class="link-over-image">
+                              {% if section.settings.about_us_image != blank %}
+                                <img
+                                  src="{{ section.settings.about_us_image | image_url }}"
+                                  alt="Featured Collection"
+                                  class="fit-cover"
+                                  width="{{ section.settings.about_us_image.width }}"
+                                  height="{{ section.settings.about_us_image.height }}"
+                                >
+                                <div class="image-text-overlay">
+                                  <h2>{{ childlink.title | escape }}</h2>
+                                </div>
+                              {% endif %}
+                            </a>
+                          </div>
+                        {% elsif title == 'the off the glass team' %}
+                          <div class="featured-collection-container color-{{ section.settings.featured_collection_color }}">
+                            <a href="{{ childlink.url }}" class="link-over-image">
+                              {% if section.settings.team_image != blank %}
+                                <img
+                                  src="{{ section.settings.team_image | image_url }}"
+                                  alt="Featured Collection"
+                                  class="fit-cover"
+                                  width="{{ section.settings.team_image.width }}"
+                                  height="{{ section.settings.team_image.height }}"
+                                >
+                                <div class="image-text-overlay">
+                                  <h2>{{ childlink.title | escape }}</h2>
+                                </div>
+                              {% endif %}
+                            </a>
+                          </div>
+                        {% else %}
+                          <a
+                            id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                            href="{{ childlink.url }}"
+                            class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                            {% if childlink.current %}
+                              aria-current="page"
+                            {% endif %}
+                          >
+                            {{ childlink.title | escape }}
+                          </a>
+                        {%- endif %}
+                      {%- endif %}
                       {%- if childlink.links != blank -%}
                         <ul class="list-unstyled" role="list">
                           {%- for grandchildlink in childlink.links -%}
+                            {%- liquid
+                              assign grandchild_title = grandchildlink.title | downcase
+                            %}
                             <li>
                               <a
                                 id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                 href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}{% if grandchild_title == 'sale' %} mega-menu__link_sale{% endif %}"
                                 {% if grandchildlink.current %}
                                   aria-current="page"
                                 {% endif %}
