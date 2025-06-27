@@ -220,6 +220,28 @@
           "secondary_button_label": "#014648",
           "shadow": "#014648"
         }
+      },
+      "scheme-1a9291b8-b6a5-4718-8858-a6c5b4454e8a": {
+        "settings": {
+          "background": "#007ac1",
+          "background_gradient": "",
+          "text": "#fdbb30",
+          "button": "#ef3b24",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#fdbb30",
+          "shadow": "#fdbb30"
+        }
+      },
+      "scheme-cc4c3146-be9e-4936-aa2b-c1a9097a9347": {
+        "settings": {
+          "background": "#fd2424",
+          "background_gradient": "",
+          "text": "#ffffff",
+          "button": "#ffffff",
+          "button_label": "#121212",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#ffffff"
+        }
       }
     }
   },
