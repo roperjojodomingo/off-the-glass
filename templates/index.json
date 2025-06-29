@@ -123,10 +123,36 @@
         "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"
       }
+    },
+    "text_with_logo_KqYjtz": {
+      "type": "text-with-logo",
+      "blocks": {
+        "image_picker_ARKj3b": {
+          "type": "image_picker",
+          "settings": {
+            "image": "shopify://shop_images/logo_6830a10f-536a-492f-81e8-9e78db4b1bd7.png"
+          }
+        },
+        "text_MxKYxE": {
+          "type": "text",
+          "settings": {
+            "text": "<strong>Born from love of the game, we create merch for real fans. From statement pieces to everyday fits, we help you show up for your team — on and off the court.</strong>"
+          }
+        }
+      },
+      "block_order": [
+        "image_picker_ARKj3b",
+        "text_MxKYxE"
+      ],
+      "name": "Text with logo",
+      "settings": {
+        "color_scheme": "scheme-ed87e2f4-d34e-4805-9fdf-522fe33f7001"
+      }
     }
   },
   "order": [
     "image_banner",
-    "slideshow_KdFcjh"
+    "slideshow_KdFcjh",
+    "text_with_logo_KqYjtz"
   ]
 }

@@ -1,0 +1,82 @@
+{{ 'section-text-with-logo.css' | asset_url | stylesheet_tag }}
+
+<div class="section-text-with-logo-container color-{{ section.settings.color_scheme }}">
+  {%- for block in section.blocks -%}
+    {%- case block.type -%}
+      {%- when 'image_picker' -%}
+        {%- if block.settings.image -%}
+          <div class="logo-container" {{ block.shopify_attributes }}>
+            <img
+              src="{{ block.settings.image | image_url }}"
+              alt="{{ block.settings.image.alt | escape }}"
+              width="{{ block.settings.image.width }}"
+              height="auto"
+              loading="lazy"
+            >
+          </div>
+        {%- endif -%}
+
+      {%- when 'text' -%}
+        {%- if block.settings.text != blank -%}
+          <div class="text-container" {{ block.shopify_attributes }}>
+            <p>{{ block.settings.text }}</p>
+          </div>
+        {%- endif -%}
+    {%- endcase -%}
+  {%- endfor -%}
+</div>
+
+{% schema %}
+{
+  "name": "Text with logo",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image_picker",
+      "name": "Logo",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Text with logo",
+      "blocks": [
+        {
+          "type": "image_picker"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
