@@ -61,7 +61,7 @@
             "heading_size": "h1",
             "subheading": "Celebrate Thunder's 1st NBA Title",
             "button_label": "View Collection",
-            "link": "#",
+            "link": "shopify://collections/oklahoma-city-thunder",
             "button_style_secondary": false,
             "show_text_box": true,
             "box_align": "top-left",
@@ -79,7 +79,7 @@
             "heading_size": "h1",
             "subheading": "Get the No. 1 Pick Look – Cooper Flagg's Official Jersey Now Available",
             "button_label": "Shop Now",
-            "link": "#",
+            "link": "shopify://products/dallas-mavericks-cooper-flagg-icon-swingman-jersey",
             "button_style_secondary": false,
             "show_text_box": true,
             "box_align": "middle-center",
@@ -97,7 +97,7 @@
             "heading_size": "h0",
             "subheading": "Answer with style. Rep the Bay with official Warriors gear.",
             "button_label": "Shop Now",
-            "link": "#",
+            "link": "shopify://collections/golden-state-warriors",
             "button_style_secondary": false,
             "show_text_box": true,
             "box_align": "bottom-right",
@@ -148,11 +148,43 @@
       "settings": {
         "color_scheme": "scheme-ed87e2f4-d34e-4805-9fdf-522fe33f7001"
       }
+    },
+    "featured_collection_tab_D4nQzY": {
+      "type": "featured-collection-tab",
+      "name": "Featured collection tab",
+      "settings": {
+        "collection_1": "jerseys-player-gear",
+        "collection_2": "apparel",
+        "collection_3": "hats-headwear",
+        "products_to_show": 6,
+        "title": "<strong>Shop Our Top Categories</strong>",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": true,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": true,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
     "image_banner",
     "slideshow_KdFcjh",
-    "text_with_logo_KqYjtz"
+    "text_with_logo_KqYjtz",
+    "featured_collection_tab_D4nQzY"
   ]
 }

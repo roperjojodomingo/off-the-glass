@@ -1,0 +1,71 @@
+.custom-slider-wrapper {
+  width: 100%;
+}
+
+.custom-slider-wrapper slider-component {
+  position: relative;
+}
+
+.custom-slider-side-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.custom-slider-button--side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  background-color: #fdfcfb;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 2px 6px #0000000a, 0 2px 2px #00000005;
+}
+
+.custom-slider-button--left {
+  transform: rotate(90deg);
+  left: 15px;
+}
+
+.custom-slider-button--right {
+  transform: rotate(90deg);
+  right: 15px;
+}
+
+slider-component:hover .custom-slider-button--side {
+  opacity: 1;
+  visibility: visible;
+}
+
+slider-component:hover .custom-slider-button--side:disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@media screen and (max-width: 749px) {
+  .custom-slider-button--side {
+    display: none;
+  }
+}
+
+.custom-slider-button--side:focus {
+  outline-offset: 2px;
+}
+
+.custom-slider-wrapper slider-component .grid {
+  min-height: 200px;
+}

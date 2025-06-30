@@ -1,0 +1,44 @@
+.tab-collection-heading {
+  padding: 0 32px;
+  margin: 0 0 32px;
+}
+
+.tab-collection-heading h2 {
+  margin-bottom: 32px !important;
+}
+
+.tab-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 3rem;
+  padding: 5px 0;
+}
+
+.tablinks {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  position: relative;
+  padding: 0 0 2px;
+  color: #4c4c4b;
+}
+
+.tablinks.active {
+  border-bottom: 1px solid rgb(var(--color-foreground));
+  color: rgb(var(--color-foreground));
+}
+
+.bordered-product-component {
+  border: 1px solid #f0f0f0;
+  margin: 0 0 0 -1px;
+}
+
+.card__inner {
+  border-bottom: 1px solid #f0f0f0;
+}
