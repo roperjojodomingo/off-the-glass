@@ -236,6 +236,62 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "collection_list_a6ciQU": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_fcTTXA": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "golden-state-warriors"
+          }
+        },
+        "featured_collection_gtcUa7": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "los-angeles-lakers"
+          }
+        },
+        "featured_collection_q4d4dk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "oklahoma-city-thunder"
+          }
+        },
+        "featured_collection_XGEUhw": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "boston-celtics"
+          }
+        },
+        "featured_collection_kczdzb": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "dallas-mavericks"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_fcTTXA",
+        "featured_collection_gtcUa7",
+        "featured_collection_q4d4dk",
+        "featured_collection_XGEUhw",
+        "featured_collection_kczdzb"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "<strong>Featured Teams</strong>",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
+        "enable_desktop_slider": true,
+        "show_view_all": false,
+        "columns_mobile": "2",
+        "swipe_on_mobile": true,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
@@ -243,6 +299,7 @@
     "slideshow_KdFcjh",
     "text_with_logo_KqYjtz",
     "featured_collection_tab_D4nQzY",
-    "image_with_text_QMpiyD"
+    "image_with_text_QMpiyD",
+    "collection_list_a6ciQU"
   ]
 }

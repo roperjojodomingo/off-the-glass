@@ -8,7 +8,6 @@
       aria-label="{{ 'general.slider.name' | t }}"
     >
       {% assign skip_card_product_styles = false %}
-
       {%- if current_collection.products.size > 0 -%}
         {% paginate current_collection.products by products_to_show %}
           {%- for product in current_collection.products limit: products_to_show -%}
