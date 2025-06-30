@@ -1,0 +1,50 @@
+{{ 'section-featured-products.css' | asset_url | stylesheet_tag }}
+
+<div class="featured-products-container color-{{ section.settings.color_scheme }}">
+  <div class="featured-products-wrapper">
+    {% for block in section.blocks %}
+      {% render block %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured products",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    }
+  ],
+  "blocks": [{ "type": "featured-product-block" }],
+  "max_blocks": 2,
+  "presets": [
+    {
+      "name": "Featured products",
+      "blocks": [
+        {
+          "type": "featured-product-block"
+        },
+        {
+          "type": "featured-product-block"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -9,46 +9,6 @@
  */
 {
   "sections": {
-    "image_banner": {
-      "type": "image-banner",
-      "blocks": {
-        "heading": {
-          "type": "heading",
-          "settings": {
-            "heading": "Browse our latest products",
-            "heading_size": "h0"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading",
-        "button"
-      ],
-      "disabled": true,
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
-    },
     "slideshow_KdFcjh": {
       "type": "slideshow",
       "blocks": {
@@ -222,7 +182,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
-        "image": "shopify://shop_images/okc-s.png",
+        "image": "shopify://shop_images/thunder_up.png",
         "height": "adapt",
         "desktop_image_width": "medium",
         "layout": "text_first",
@@ -292,14 +252,51 @@
         "padding_top": 64,
         "padding_bottom": 64
       }
+    },
+    "featured_products_bhd3Uq": {
+      "type": "featured-products",
+      "blocks": {
+        "featured_product_block_fWQ3A9": {
+          "type": "featured-product-block",
+          "settings": {
+            "image": "shopify://shop_images/curry.webp",
+            "heading": "Chef Curry Jersey",
+            "description": "Cook up some buckets. This is the look of a four-time champ and all-time great.",
+            "button_text": "SHOP NOW",
+            "url": "shopify://products/unisex-nike-stephen-curry-royal-golden-state-warriors-swingman-badge-jersey-icon-edition"
+          },
+          "blocks": {}
+        },
+        "featured_product_block_8Y8aTd": {
+          "type": "featured-product-block",
+          "settings": {
+            "image": "shopify://shop_images/luka.webp",
+            "heading": "Luka Dončić Gear",
+            "description": "Buckets, handles, vision. Rep Luka with official merch built for the hardwood",
+            "button_text": "SHOP NOW",
+            "url": "shopify://products/doncic-association-swingman-jersey"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "featured_product_block_fWQ3A9",
+        "featured_product_block_8Y8aTd"
+      ],
+      "name": "Featured products",
+      "settings": {
+        "title": "TOP PICKS",
+        "description": "From the Court to Your Closet",
+        "color_scheme": "scheme-21601e80-54ab-46a4-a274-2808b67befd0"
+      }
     }
   },
   "order": [
-    "image_banner",
     "slideshow_KdFcjh",
     "text_with_logo_KqYjtz",
     "featured_collection_tab_D4nQzY",
     "image_with_text_QMpiyD",
-    "collection_list_a6ciQU"
+    "collection_list_a6ciQU",
+    "featured_products_bhd3Uq"
   ]
 }

@@ -1,0 +1,57 @@
+<div class="featured-product">
+  {% if block.settings.image != blank %}
+    <div class="featured-product-image">
+      <img
+        loading="lazy"
+        src="{{  block.settings.image | image_url: width: 1000 }}"
+        alt="{{ block.settings.heading  }}"
+        width="{{ block.settings.image.width }}"
+        height="{{ block.settings.image.height }}"
+      >
+    </div>
+  {% endif %}
+  <div class="featured-product-data">
+    <h3>{{ block.settings.heading }}</h3>
+    {% if block.settings.description != blank %}
+      <p>{{ block.settings.description }}</p>
+    {% endif -%}
+    <a href="{{ block.settings.url }}">{{ block.settings.button_text }}</a>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Featured product",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Select image"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text"
+    },
+    {
+      "type": "url",
+      "id": "url",
+      "label": "URL"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured product"
+    }
+  ]
+}
+{% endschema %}
