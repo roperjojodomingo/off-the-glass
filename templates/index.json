@@ -194,7 +194,8 @@
         "section_color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
         "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
         "padding_top": 0,
-        "padding_bottom": 0
+        "padding_bottom": 0,
+        "enable_newsletter": false
       }
     },
     "collection_list_a6ciQU": {
@@ -260,7 +261,7 @@
           "type": "featured-product-block",
           "settings": {
             "image": "shopify://shop_images/curry.webp",
-            "heading": "Chef Curry Jersey",
+            "heading": "<strong>Chef Curry Jersey</strong>",
             "description": "Cook up some buckets. This is the look of a four-time champ and all-time great.",
             "button_text": "SHOP NOW",
             "url": "shopify://products/unisex-nike-stephen-curry-royal-golden-state-warriors-swingman-badge-jersey-icon-edition"
@@ -271,7 +272,7 @@
           "type": "featured-product-block",
           "settings": {
             "image": "shopify://shop_images/luka.webp",
-            "heading": "Luka Dončić Gear",
+            "heading": "<strong>Luka Dončić Gear</strong>",
             "description": "Buckets, handles, vision. Rep Luka with official merch built for the hardwood",
             "button_text": "SHOP NOW",
             "url": "shopify://products/doncic-association-swingman-jersey"
@@ -289,6 +290,60 @@
         "description": "From the Court to Your Closet",
         "color_scheme": "scheme-21601e80-54ab-46a4-a274-2808b67befd0"
       }
+    },
+    "image_with_text_F6CKCL": {
+      "type": "image-with-text",
+      "blocks": {
+        "caption_MEaMUi": {
+          "type": "caption",
+          "settings": {
+            "caption": "Subscribe to our Newsletter",
+            "text_style": "caption-with-letter-spacing",
+            "text_size": "medium"
+          }
+        },
+        "heading_AHEWAd": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Be the first to know!</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_zUDBjg": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Stay in the loop with exclusive drops, limited-run gear, early product launches, and updates from your favorite teams.</p>",
+            "text_style": "body"
+          }
+        },
+        "newsletter_block_3Bff3W": {
+          "type": "newsletter-block",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "caption_MEaMUi",
+        "heading_AHEWAd",
+        "text_zUDBjg",
+        "newsletter_block_3Bff3W"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/assets_task_01jyzwt334e9tamzaphd9yqvr1_1751269662_img_1.webp",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "image_behavior": "none",
+        "content_layout": "no-overlap",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "center",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "scheme-ad52f1d0-a7b6-4223-a46c-2793bce2a224",
+        "color_scheme": "scheme-ad52f1d0-a7b6-4223-a46c-2793bce2a224",
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "enable_newsletter": true
+      }
     }
   },
   "order": [
@@ -297,6 +352,7 @@
     "featured_collection_tab_D4nQzY",
     "image_with_text_QMpiyD",
     "collection_list_a6ciQU",
-    "featured_products_bhd3Uq"
+    "featured_products_bhd3Uq",
+    "image_with_text_F6CKCL"
   ]
 }

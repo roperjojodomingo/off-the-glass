@@ -100,6 +100,9 @@
                   {%- endif -%}
               {%- endcase -%}
             {%- endfor -%}
+            {% if section.settings.enable_newsletter %}
+              {% render 'newsletter', id: section.id %}
+            {%- endif -%}
           </div>
         </div>
       </div>
@@ -319,6 +322,16 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_newsletter",
+      "label": "Enable newsletter",
+      "default": false
     }
   ],
   "blocks": [
@@ -465,7 +478,8 @@
           "label": "t:sections.image-with-text.blocks.button.settings.outline_button.label"
         }
       ]
-    }
+    },
+    { "type": "newsletter-block", "name": "Newsletter", "limit": 1 }
   ],
   "presets": [
     {
