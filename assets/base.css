@@ -83,6 +83,10 @@
   padding: 0 1.5rem;
 }
 
+.full-width {
+  width: 100%;
+}
+
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   max-width: 100%;
 }
