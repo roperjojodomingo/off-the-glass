@@ -1,0 +1,70 @@
+.testimonials {
+  padding: 64px 0;
+}
+
+.testimonial-li .shopify-block {
+  height: 100%;
+}
+
+.testimonials-wrapper {
+  width: 100%;
+}
+
+.testimonials-wrapper h2 {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  margin: 0 3rem 16px 3rem;
+  font-size: 2.7rem;
+}
+
+.testimonial-grid {
+  gap: 3rem;
+  padding-left: 3rem;
+}
+
+.testimonial {
+  min-width: 0;
+  background: #a3dcdc;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  font-size: 1.9rem;
+  line-height: 1.5;
+  font-weight: bold;
+  margin: 0 0 2rem 0;
+}
+
+.customer {
+  font-size: 1.4rem;
+  margin: 0;
+  margin-top: auto;
+}
+
+.credentials {
+  font-size: 1.2rem;
+  margin: 0;
+}
+strong {
+  font-weight: bold;
+}
+
+.testimonial svg:first-child {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1rem;
+  transform: rotate(180deg);
+}
+
+.testimonial svg:last-child {
+  margin-left: auto;
+  width: 2rem;
+  height: 2rem;
+  margin-top: 1rem;
+  display: block;
+}

@@ -1,0 +1,34 @@
+{% render 'testimonial',
+  text: block.settings.text,
+  customer_name: block.settings.customer_name,
+  credentials: block.settings.credentials
+%}
+
+{% schema %}
+{
+  "name": "Testimonial",
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "text",
+      "label": "Text"
+    },
+    {
+      "type": "text",
+      "id": "customer_name",
+      "label": "Customer name"
+    },
+    {
+      "type": "text",
+      "id": "credentials",
+      "label": "Credentials"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonial",
+      "settings": {}
+    }
+  ]
+}
+{% endschema %}

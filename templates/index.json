@@ -344,6 +344,62 @@
         "padding_bottom": 0,
         "enable_newsletter": true
       }
+    },
+    "testimonials_Y3iMyG": {
+      "type": "testimonials",
+      "blocks": {
+        "testimonial_block_H7aeAY": {
+          "type": "testimonial-block",
+          "name": "Rating",
+          "settings": {
+            "text": "I’ve been collecting NBA gear for years, and this site has some of the cleanest drops I’ve seen. Fast shipping and the Curry jersey is 🔥.",
+            "customer_name": "John Philips",
+            "credentials": "High School Coach, Phoenix AZ"
+          },
+          "blocks": {}
+        },
+        "testimonial_block_HTzaya": {
+          "type": "testimonial-block",
+          "name": "Rating",
+          "settings": {
+            "text": "Got the Kyrie jersey and Thunder snapback — both arrived quick and look official. No regrets, just buckets.",
+            "customer_name": "Marcus Lee",
+            "credentials": "Sneakerhead & Mavs Fan"
+          },
+          "blocks": {}
+        },
+        "testimonial_block_DTKaYc": {
+          "type": "testimonial-block",
+          "name": "Rating",
+          "settings": {
+            "text": "The City Edition shirts are top-notch and the sizing is perfect. Loved the packaging too — felt premium.",
+            "customer_name": "Alicia Gomez",
+            "credentials": "Sports Blogger & Celtics Fan"
+          },
+          "blocks": {}
+        },
+        "testimonial_block_qiDDQd": {
+          "type": "testimonial-block",
+          "name": "Rating",
+          "settings": {
+            "text": "Easy checkout, great categories, and they actually had my size in stock. The Mitchell & Ness jersey is a gem.",
+            "customer_name": "Chris Dudely",
+            "credentials": "Fantasy League Commissioner"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "testimonial_block_H7aeAY",
+        "testimonial_block_HTzaya",
+        "testimonial_block_DTKaYc",
+        "testimonial_block_qiDDQd"
+      ],
+      "name": "Testimonials",
+      "settings": {
+        "heading": "<strong>What Our Customers Are Saying</strong>",
+        "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653"
+      }
     }
   },
   "order": [
@@ -353,6 +409,7 @@
     "image_with_text_QMpiyD",
     "collection_list_a6ciQU",
     "featured_products_bhd3Uq",
-    "image_with_text_F6CKCL"
+    "image_with_text_F6CKCL",
+    "testimonials_Y3iMyG"
   ]
 }

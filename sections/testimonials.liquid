@@ -1,0 +1,87 @@
+{{ 'section-testimonials.css' | asset_url | stylesheet_tag }}
+{{ 'custom-slider.css' | asset_url | stylesheet_tag }}
+{{ 'component-slider.css' | asset_url | stylesheet_tag }}
+
+<div
+  class="testimonials color-{{ section.settings.color_scheme }}"
+>
+  <div class="testimonials-wrapper">
+    <h2>
+      {{ section.settings.heading }}
+    </h2>
+    <div class="custom-slider-wrapper">
+      <slider-component class="slider-mobile-gutter  slider-component-full-width  slider-component-desktop scroll-trigger animate--slide-in">
+        <ul
+          id="Slider-{{ section.id }}"
+          data-id="{{ section.id }}"
+          class="grid testimonial-grid contains-card  grid--custom-col-desktop grid--1-col-tablet-down slider slider--desktop slider--tablet grid--peek"
+          role="list"
+          aria-label="{{ 'general.slider.name' | t }}"
+        >
+          {% for block in section.blocks %}
+            <li
+              id="Slide-{{ section.id  }}-{{ block.id }}"
+              class="grid__item  slider__slide  scroll-trigger animate--slide-in testimonial-li"
+              data-cascade
+              style="--animation-order: {{ block.id }};"
+            >
+              {% render block %}
+            </li>
+          {% endfor %}
+        </ul>
+        <div class="custom-slider-side-nav">
+          <button
+            type="button"
+            class=" slider-button--prev custom-slider-button--side custom-slider-button--left"
+            name="previous"
+            aria-label="{{ 'general.slider.previous_slide' | t }}"
+            aria-controls="Slider-{{ section.id }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-arrow.svg' | inline_asset_content -}}
+            </span>
+          </button>
+          <button
+            type="button"
+            class="slider-button--next custom-slider-button--side custom-slider-button--right"
+            name="next"
+            aria-label="{{ 'general.slider.next_slide' | t }}"
+            aria-controls="Slider-{{ section.id  }}"
+          >
+            <span class="svg-wrapper">
+              {{- 'icon-arrow.svg' | inline_asset_content -}}
+            </span>
+          </button>
+        </div>
+      </slider-component>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Testimonials",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    }
+  ],
+  "blocks": [{ "type": "testimonial-block" }],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}

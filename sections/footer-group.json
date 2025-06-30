@@ -13,6 +13,7 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "disabled": true,
       "settings": {
         "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
         "newsletter_enable": true,

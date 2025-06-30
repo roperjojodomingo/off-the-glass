@@ -38,12 +38,12 @@
 
 .custom-slider-button--left {
   transform: rotate(90deg);
-  left: 15px;
+  left: 3rem;
 }
 
 .custom-slider-button--right {
   transform: rotate(90deg);
-  right: 15px;
+  right: 3rem;
 }
 
 slider-component:hover .custom-slider-button--side {
