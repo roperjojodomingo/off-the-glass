@@ -356,7 +356,10 @@
                                 </dt>
                                 <dd>
                                   <span class="price-per-item--current">
-                                    {{- 'products.product.volume_pricing.price_at_each_html' | t: price: variant_price -}}
+                                    {{-
+                                      'products.product.volume_pricing.price_at_each_html'
+                                      | t: price: variant_price
+                                    -}}
                                   </span>
                                 </dd>
                               </dl>
@@ -529,12 +532,12 @@
                           <details id="Details-{{ block.id }}-{{ section.id }}" open>
                             <summary>
                         {%- endif %}
-                        <div class="summary__title">
+                        <div class="summary__title ">
                           {%- if block.settings.make_collapsible_row -%}
                             {% render 'icon-accordion', icon: block.settings.icon %}
                             <h2 class="h4 accordion__title">{{ block.settings.block_heading }}</h2>
                           {%- else -%}
-                            <h2 class="h3 accordion__title">{{ block.settings.block_heading }}</h2>
+                            <h2 class="h3 accordion__title recommendation_title">{{ block.settings.block_heading }}</h2>
                           {%- endif -%}
                         </div>
                         {%- if block.settings.make_collapsible_row -%}
@@ -567,7 +570,7 @@
                                   aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
                                 {% endif %}
                               >
-                                <ul class="list-unstyled" role="list">
+                                <ul class="list-unstyled recommended-list" role="list">
                                   {%- for product in recommendations.products
                                     limit: block.settings.products_per_page
                                     offset: continue
@@ -587,7 +590,8 @@
                                         quick_add: quick_add,
                                         section_id: section.id,
                                         horizontal_class: true,
-                                        horizontal_quick_add: true
+                                        horizontal_quick_add: true,
+                                        is_recommended: true
                                       %}
                                     </li>
                                     {%- assign skip_card_product_styles = true -%}
@@ -1674,7 +1678,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_2.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_2",
@@ -1874,7 +1878,7 @@
         {
           "type": "header",
           "content": "t:sections.main-product.blocks.icon_with_text.settings.pairing_3.label"
-        },        
+        },
         {
           "type": "select",
           "id": "icon_3",
@@ -2176,7 +2180,7 @@
       ],
       "default": "hide",
       "label": "t:sections.main-product.settings.mobile_thumbnails.label"
-    },    
+    },
     {
       "type": "select",
       "id": "media_position",

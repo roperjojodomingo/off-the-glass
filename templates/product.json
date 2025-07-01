@@ -48,6 +48,19 @@
         "description": {
           "type": "description",
           "settings": {}
+        },
+        "complementary_h9jUag": {
+          "type": "complementary",
+          "settings": {
+            "block_heading": "You may also like:",
+            "make_collapsible_row": false,
+            "icon": "iron",
+            "product_list_limit": 3,
+            "products_per_page": 3,
+            "pagination_style": "counter",
+            "image_ratio": "portrait",
+            "enable_quick_add": true
+          }
         }
       },
       "block_order": [
@@ -57,7 +70,8 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description"
+        "description",
+        "complementary_h9jUag"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -71,8 +85,8 @@
         "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
-        "padding_top": 36,
-        "padding_bottom": 12
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     },
     "collection_banner_9iywAT": {
@@ -121,8 +135,8 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
-        "padding_top": 36,
-        "padding_bottom": 28
+        "padding_top": 64,
+        "padding_bottom": 64
       }
     }
   },
