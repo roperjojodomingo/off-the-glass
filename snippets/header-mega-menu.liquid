@@ -40,7 +40,7 @@
                     <li class="{% if title == 'featured collection' or title == 'about us' or title == 'the off the glass team' %}mega-menu-image{% endif %}">
                       {% if childlink.title != '#' %}
                         {% if title == 'featured collection' %}
-                          {% if section.settings.featured_collection != null %}
+                          {% if section.settings.featured_collection_image != null %}
                             <div class="featured-collection-container color-{{ section.settings.featured_collection_color }}">
                               <a href="{{ section.settings.featured_collection.url }}" class="link-over-image">
                                 {% if section.settings.featured_collection_image != blank %}
