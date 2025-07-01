@@ -127,7 +127,7 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
-    "cart_color_scheme": "scheme-1",
+    "cart_color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -146,6 +146,11 @@
     "blocks": {
       "4372474792694305445": {
         "type": "shopify://apps/also-bought/blocks/app-embed-block/b94b27b4-738d-4d92-9e60-43c22d1da3f2",
+        "disabled": false,
+        "settings": {}
+      },
+      "1909789295049107559": {
+        "type": "shopify://apps/mbc-bundles/blocks/mbc-bundles-core-snippet/57c94b78-e464-47f4-9403-7ffcfcddb33f",
         "disabled": false,
         "settings": {}
       }
