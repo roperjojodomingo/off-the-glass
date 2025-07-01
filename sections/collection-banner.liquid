@@ -23,82 +23,92 @@
     assign remove_color_classes = true
   endif
 
-  assign banner_image = collection.metafields.custom.collection_banner_image
+  assign current_collection = collection
+  if current_collection == blank and product != blank
+    assign product_collections = product.collections
+    assign current_collection = product_collections | find: 'title', product.vendor
+  endif
+
+  assign banner_image = current_collection.metafields.custom.collection_banner_image
   if banner_image == blank
-    assign banner_image = collection.image
+    assign banner_image = current_collection.image
   endif
 -%}
 
-<div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
-  <div class="full-width">
-    <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
-        <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
-          <div
-            class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if banner_image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
-            {% if section.settings.height == 'adapt' and banner_image != blank %}
-              style="padding-bottom: {{ 1 | divided_by: banner_image.aspect_ratio | times: 100 }}%;"
-            {% endif %}
-          >
-            {%- if banner_image != blank -%}
-              {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
-                {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
-                {%- capture sizes -%}
+{% if current_collection != blank %}
+  <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.section_color_scheme }}">
+    <div class="full-width">
+      <div class="image-with-text image-with-text--{{ section.settings.content_layout }} isolate{% if settings.text_boxes_border_thickness > 0 and settings.text_boxes_border_opacity > 0 and settings.media_border_thickness > 0 and settings.media_border_opacity > 0 %} collapse-borders{% endif %}{% unless section.settings.color_scheme == section.settings.section_color_scheme and settings.media_border_thickness > 0 and settings.text_boxes_shadow_opacity == 0 and settings.text_boxes_border_thickness == 0 or settings.text_boxes_border_opacity == 0 %} collapse-corners{% endunless %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        <div class="image-with-text__grid grid grid--gapless grid--1-col grid--{% if section.settings.desktop_image_width == 'medium' %}2-col-tablet{% else %}3-col-tablet{% endif %}{% if section.settings.layout == 'text_first' %} image-with-text__grid--reverse{% endif %}">
+          <div class="image-with-text__media-item image-with-text__media-item--{{ section.settings.desktop_image_width }} image-with-text__media-item--{{ section.settings.desktop_content_position }} grid__item">
+            <div
+              class="image-with-text__media image-with-text__media--{{ section.settings.height }} global-media-settings{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}{% if banner_image != blank %} media{% else %} image-with-text__media--placeholder placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}"
+              {% if section.settings.height == 'adapt' and banner_image != blank %}
+                style="padding-bottom: {{ 1 | divided_by: banner_image.aspect_ratio | times: 100 }}%;"
+              {% endif %}
+            >
+              {%- if banner_image != blank -%}
+                {%- if section.settings.image_behavior == 'ambient' or section.settings.image_behavior == 'zoom-in' -%}
+                  {%- assign widths = '198, 432, 642, 900, 1284, 1800' -%}
+                  {%- capture sizes -%}
               (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 1.6667 }}px,
               (min-width: 750px) calc((100vw - 130px) / 1.667), calc((100vw - 50px) / 1.667)
             {%- endcapture -%}
-              {%- else -%}
-                {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
-                {%- capture sizes -%}
+                {%- else -%}
+                  {%- assign widths = '165, 360, 535, 750, 1070, 1500' -%}
+                  {%- capture sizes -%}
               (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px,
               (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)
             {%- endcapture -%}
+                {%- endif -%}
+                {{
+                  banner_image
+                  | image_url: width: 1500
+                  | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                }}
+              {%- else -%}
+                {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
               {%- endif -%}
-              {{
-                banner_image
-                | image_url: width: 1500
-                | image_tag: sizes: sizes, widths: widths, fetchpriority: fetch_priority
-              }}
-            {%- else -%}
-              {{ 'detailed-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- endif -%}
-          </div>
-        </div>
-        <div class="image-with-text__text-item grid__item">
-          <div
-            id="ImageWithText--{{ section.id }}"
-            class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
-          >
-            {%- for block in section.blocks -%}
-              {% case block.type %}
-                {%- when 'caption' -%}
-                  <p
-                    class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
-                    {{ block.shopify_attributes }}
-                  >
-                    {{ block.settings.caption | escape }}
-                  </p>
-              {%- endcase -%}
-            {%- endfor -%}
-            <h2
-              class="image-with-text__heading inline-richtext"
-            >
-              {{ collection.title }}
-            </h2>
-            <div class="image-with-text__text rte }">
-              {{ collection.description }}
             </div>
-            <div>
-              {% for link in collection.metafields.custom.links.value %}
-                <a href="{{ link[1] }}" class="collection-links">{{ link[0] | upcase }}</a>
-              {% endfor %}
+          </div>
+          <div class="image-with-text__text-item grid__item">
+            <div
+              id="ImageWithText--{{ section.id }}"
+              class="image-with-text__content image-with-text__content--{{ section.settings.desktop_content_position }} image-with-text__content--desktop-{{ section.settings.desktop_content_alignment }} image-with-text__content--mobile-{{ section.settings.mobile_content_alignment }} image-with-text__content--{{ section.settings.height }} content-container{% unless remove_color_classes %} gradient color-{{ section.settings.color_scheme }}{% else %} background-transparent{% endunless %}"
+            >
+              {%- for block in section.blocks -%}
+                {% case block.type %}
+                  {%- when 'caption' -%}
+                    <p
+                      class="image-with-text__text image-with-text__text--caption {{ block.settings.text_style }} {{ block.settings.text_style }}--{{ block.settings.text_size }} {{ block.settings.text_style }}"
+                      {{ block.shopify_attributes }}
+                    >
+                      {{ block.settings.caption | escape }}
+                    </p>
+                {%- endcase -%}
+              {%- endfor -%}
+              <h2
+                class="image-with-text__heading inline-richtext"
+              >
+                {{ current_collection.title }}
+              </h2>
+              <div class="image-with-text__text rte }">
+                {{ current_collection.description }}
+              </div>
+              {% if section.settings.show_links %}
+                <div>
+                  {% for link in current_collection.metafields.custom.links.value %}
+                    <a href="{{ link[1] }}" class="collection-links">{{ link[0] | upcase }}</a>
+                  {% endfor %}
+                </div>
+              {% endif %}
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+{% endif %}
 
 {% schema %}
 {
@@ -187,6 +197,12 @@
       ],
       "default": "none",
       "label": "t:sections.all.animation.image_behavior.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_links",
+      "label": "Show links",
+      "default": true
     },
     {
       "type": "header",
