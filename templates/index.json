@@ -127,7 +127,7 @@
         "full_width": true,
         "show_view_all": false,
         "view_all_style": "solid",
-        "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
+        "color_scheme": "scheme-ac653d6b-bc10-4d34-9808-7690828bf116",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
@@ -245,7 +245,7 @@
         "heading_size": "h1",
         "image_ratio": "square",
         "columns_desktop": 3,
-        "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
+        "color_scheme": "scheme-ac653d6b-bc10-4d34-9808-7690828bf116",
         "enable_desktop_slider": true,
         "show_view_all": false,
         "columns_mobile": "2",
@@ -398,7 +398,7 @@
       "name": "Testimonials",
       "settings": {
         "heading": "<strong>What Our Customers Are Saying</strong>",
-        "color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653"
+        "color_scheme": "scheme-ac653d6b-bc10-4d34-9808-7690828bf116"
       }
     }
   },

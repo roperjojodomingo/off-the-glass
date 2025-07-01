@@ -81,13 +81,17 @@
               {%- endcase -%}
             {%- endfor -%}
             <h2
-              class="image-with-text__heading inline-richtext {{ block.settings.heading_size }}"
-              {{ block.shopify_attributes }}
+              class="image-with-text__heading inline-richtext"
             >
               {{ collection.title }}
             </h2>
-            <div class="image-with-text__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+            <div class="image-with-text__text rte }">
               {{ collection.description }}
+            </div>
+            <div>
+              {% for link in collection.metafields.custom.links.value %}
+                <a href="{{ link[1] }}" class="collection-links">{{ link[0] | upcase }}</a>
+              {% endfor %}
             </div>
           </div>
         </div>

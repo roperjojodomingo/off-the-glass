@@ -23,3 +23,7 @@
   border-style: dashed;
   border-color: rgba(var(--color-foreground), 0.5);
 }
+
+.padded-vertical-filter {
+  padding-left: 3rem;
+}

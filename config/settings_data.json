@@ -46,7 +46,7 @@
     "card_style": "card",
     "card_image_padding": 0,
     "card_text_alignment": "left",
-    "card_color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
+    "card_color_scheme": "scheme-ac653d6b-bc10-4d34-9808-7690828bf116",
     "card_border_thickness": 0,
     "card_border_opacity": 10,
     "card_corner_radius": 0,
@@ -57,7 +57,7 @@
     "collection_card_style": "card",
     "collection_card_image_padding": 0,
     "collection_card_text_alignment": "left",
-    "collection_card_color_scheme": "scheme-591625f5-d89a-4ec2-9cee-16065c10e653",
+    "collection_card_color_scheme": "scheme-ac653d6b-bc10-4d34-9808-7690828bf116",
     "collection_card_border_thickness": 0,
     "collection_card_border_opacity": 10,
     "collection_card_corner_radius": 0,
@@ -122,7 +122,7 @@
     "predictive_search_enabled": true,
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
-    "currency_code_enabled": true,
+    "currency_code_enabled": false,
     "cart_type": "notification",
     "show_vendor": false,
     "show_cart_note": false,
@@ -267,7 +267,7 @@
       },
       "scheme-21601e80-54ab-46a4-a274-2808b67befd0": {
         "settings": {
-          "background": "#fbf8f5",
+          "background": "#fdfcfb",
           "background_gradient": "",
           "text": "#ffffff",
           "button": "rgba(0,0,0,0)",
@@ -283,6 +283,17 @@
           "text": "#014648",
           "button": "#ffffff",
           "button_label": "#d7eb5f",
+          "secondary_button_label": "#121212",
+          "shadow": "#121212"
+        }
+      },
+      "scheme-ac653d6b-bc10-4d34-9808-7690828bf116": {
+        "settings": {
+          "background": "#fdfcfb",
+          "background_gradient": "",
+          "text": "#014648",
+          "button": "#121212",
+          "button_label": "#ffffff",
           "secondary_button_label": "#121212",
           "shadow": "#121212"
         }
