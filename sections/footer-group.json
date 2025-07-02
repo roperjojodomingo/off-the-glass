@@ -11,6 +11,18 @@
   "name": "t:sections.footer.name",
   "type": "footer",
   "sections": {
+    "custom_footer_JcMnrh": {
+      "type": "custom-footer",
+      "name": "Custom footer",
+      "settings": {
+        "logo": "shopify://shop_images/logo-footer.png",
+        "color_scheme": "scheme-984556c2-5625-44fb-8513-1b3e5ef217cb",
+        "menu_1_heading": "Shop",
+        "menu_1": "shop",
+        "menu_2_heading": "About",
+        "menu_2": "about"
+      }
+    },
     "footer": {
       "type": "footer",
       "disabled": true,
@@ -31,6 +43,7 @@
     }
   },
   "order": [
+    "custom_footer_JcMnrh",
     "footer"
   ]
 }

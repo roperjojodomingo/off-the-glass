@@ -1,0 +1,106 @@
+{{ 'section-custom-footer.css' | asset_url | stylesheet_tag }}
+
+<style>
+  .custom-footer-container {
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+</style>
+
+<div class="custom-footer-container color-{{ section.settings.color_scheme }}">
+  <div class="custom-footer-links">
+    <div class="custom-footer-grid">
+      <div class="custom-footer-item-with-logo">
+        {%- if section.settings.logo != blank -%}
+          <img
+            class="footer-logo"
+            src="{{ section.settings.logo | image_url: width: 1000  }}"
+            alt=""
+            loading="eager"
+            width="{{ section.settings.image.width }}"
+            height="{{ section.settings.image.height }}"
+          >
+        {% endif %}
+
+        <p>Bonifacio Global City</p>
+        <p>Taguig City</p>
+        <p>1634 Philippines</p>
+        <a href="/pages/contact">Contact Us</a>
+      </div>
+      <div class="custom-footer-item">
+        <h3>{{ section.settings.menu_1_heading }}</h3>
+        {%- if section.settings.menu_1 != blank -%}
+          <ul class="custom-footer-item-links">
+            {%- for link in linklists[section.settings.menu_1].links -%}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+      <div class="custom-footer-item">
+        <h3>{{ section.settings.menu_2_heading }}</h3>
+        {%- if section.settings.menu_2 != blank -%}
+          <ul class="custom-footer-item-links">
+            {%- for link in linklists[section.settings.menu_2].links -%}
+              <li>
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              </li>
+            {%- endfor -%}
+          </ul>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  <div class="custom-footer-payment">
+    <p>© Off the Glass 2025 Website Powered by Shopify</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Custom footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme"
+    },
+    {
+      "type": "text",
+      "id": "menu_1_heading",
+      "label": "Menu 1 heading"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_1",
+      "label": "Menu 1"
+    },
+    {
+      "type": "text",
+      "id": "menu_2_heading",
+      "label": "Menu 2 heading"
+    },
+    {
+      "type": "link_list",
+      "id": "menu_2",
+      "label": "Menu 2"
+    }
+  ],
+  "blocks": [],
+  "presets": [
+    {
+      "name": "Custom footer"
+    }
+  ]
+}
+{% endschema %}

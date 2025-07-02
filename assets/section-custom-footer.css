@@ -1,0 +1,103 @@
+.custom-footer-links {
+  position: relative;
+  max-width: 1660px;
+  margin: 0 auto;
+  padding: 64px 32px 0;
+}
+
+.custom-footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.custom-footer-item,
+.custom-footer-item-with-logo {
+  box-sizing: border-box;
+  float: left;
+  min-height: 1px;
+  padding-left: 30px;
+  vertical-align: top;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+  .custom-footer-item,
+  .custom-footer-item-with-logo {
+    width: 30%;
+  }
+}
+
+.footer-logo {
+  width: 50%;
+  height: auto;
+}
+
+.custom-footer-item h3 {
+  font-size: 2.25rem;
+  margin: 1em 0 1em;
+  font-weight: bold;
+}
+
+.custom-footer-item-links {
+  padding: 0;
+  margin: 0;
+}
+
+.custom-footer-item-links li {
+  list-style-type: none;
+  margin: 0 0 1em 0;
+  list-style-position: inside;
+}
+
+.custom-footer-item-links a {
+  margin: 0;
+  position: relative;
+  text-decoration: none;
+  color: rgb(var(--color-foreground));
+  display: inline-block;
+}
+
+.custom-footer-item-links a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0%;
+  height: 1px;
+  background-color: rgb(var(--color-foreground));
+  transition: width 0.3s ease;
+}
+
+.custom-footer-item-links a:hover::after {
+  width: 100%;
+}
+
+.custom-footer-item p {
+  margin: 0;
+  margin: 0 0 15px 0;
+}
+
+.custom-footer-item-with-logo p {
+  margin: 0 0 0 0;
+}
+
+.custom-footer-item-with-logo a {
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+  color: rgb(var(--color-foreground));
+}
+
+.custom-footer-payment {
+  max-width: 100%;
+  padding: 30px 0 30px 0;
+  margin: 0 auto;
+}
+
+.custom-footer-payment p {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.footer-address {
+  margin: 0 0 0 0 !important;
+}
