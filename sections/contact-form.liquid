@@ -14,45 +14,46 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
-      <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+<div class="color-{{ section.settings.color_scheme }}  section-{{ section.id }}-padding gradient">
+  <div class="contact-form-container">
+    <div class="contact-form-header">
+      {%- if section.settings.heading != blank -%}
         {{ section.settings.heading }}
-      </h2>
-    {%- else -%}
-      <h2 class="visually-hidden">{{ 'templates.contact.form.title' | t }}</h2>
-    {%- endif -%}
-    {%- liquid
-      assign contact_form_class = 'isolate'
-      if settings.animations_reveal_on_scroll
-        assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
-      endif
-    -%}
-    {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
-      {%- if form.posted_successfully? -%}
-        <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
-          {{- 'icon-success.svg' | inline_asset_content -}}
-          {{ 'templates.contact.form.post_success' | t }}
-        </h2>
-      {%- elsif form.errors -%}
-        <div class="form__message">
-          <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
-            {{- 'icon-error.svg' | inline_asset_content -}}
-            {{ 'templates.contact.form.error_heading' | t }}
-          </h2>
-        </div>
-        <ul class="form-status-list caption-large" role="list">
-          <li>
-            <a href="#ContactForm-email" class="link">
-              {{ form.errors.translated_fields.email | capitalize }}
-              {{ form.errors.messages.email }}
-            </a>
-          </li>
-        </ul>
+      {%- else -%}
+        {{ 'templates.contact.form.title' | t }}
       {%- endif -%}
-      <div class="contact__fields">
-        <div class="field">
+    </div>
+    <div class="contact page-width page-width--narrow">
+      {%- liquid
+        assign contact_form_class = 'isolate'
+        if settings.animations_reveal_on_scroll
+          assign contact_form_class = 'isolate scroll-trigger animate--slide-in'
+        endif
+      -%}
+      {%- form 'contact', id: 'ContactForm', class: contact_form_class -%}
+        {%- if form.posted_successfully? -%}
+          <h2 class="form-status form-status-list form__message" tabindex="-1" autofocus>
+            {{- 'icon-success.svg' | inline_asset_content -}}
+            {{ 'templates.contact.form.post_success' | t }}
+          </h2>
+        {%- elsif form.errors -%}
+          <div class="form__message">
+            <h2 class="form-status caption-large text-body" role="alert" tabindex="-1" autofocus>
+              {{- 'icon-error.svg' | inline_asset_content -}}
+              {{ 'templates.contact.form.error_heading' | t }}
+            </h2>
+          </div>
+          <ul class="form-status-list caption-large" role="list">
+            <li>
+              <a href="#ContactForm-email" class="link">
+                {{ form.errors.translated_fields.email | capitalize }}
+                {{ form.errors.messages.email }}
+              </a>
+            </li>
+          </ul>
+        {%- endif -%}
+        <label class="input-label">Full name <span class="required">*</span></label>
+        <div class="custom-field">
           <input
             class="field__input"
             autocomplete="name"
@@ -60,11 +61,11 @@
             id="ContactForm-name"
             name="contact[{{ 'templates.contact.form.name' | t }}]"
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-            placeholder="{{ 'templates.contact.form.name' | t }}"
+            required
           >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
         </div>
-        <div class="field field--with-error">
+        <label class="input-label">Email <span class="required">*</span></label>
+        <div class="custom-field field--with-error">
           <input
             autocomplete="email"
             type="email"
@@ -79,12 +80,10 @@
               aria-invalid="true"
               aria-describedby="ContactForm-email-error"
             {% endif %}
-            placeholder="{{ 'templates.contact.form.email' | t }}"
+            placeholder="your@email.com"
+            required
           >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
+
           {%- if form.errors contains 'email' -%}
             <small class="contact__field-error" id="ContactForm-email-error">
               <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
@@ -98,42 +97,99 @@
             </small>
           {%- endif -%}
         </div>
-      </div>
-      <div class="field">
-        <input
-          type="tel"
-          id="ContactForm-phone"
-          class="field__input"
-          autocomplete="tel"
-          name="contact[{{ 'templates.contact.form.phone' | t }}]"
-          pattern="[0-9\-]*"
-          value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-          placeholder="{{ 'templates.contact.form.phone' | t }}"
-        >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
-      </div>
-      <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
+        <label class="input-label">Subject <span class="required">*</span></label>
+        <div class="custom-field">
+          <select name="contact[subject]" id="ContactForm-subject" class="field__input" required>
+            <option value="" disabled selected>Select a subject</option>
+            <option value="order-status">Order status</option>
+            <option value="report-issue">Report an issue</option>
+            <option value="product-question">Product question</option>
+            <option value="update-shipping">Update shipping address</option>
+            <option value="cancel-order">Cancel an order</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <label class="input-label">Message <span class="required">*</span></label>
+        <div class="custom-field">
+          <textarea
+            rows="10"
+            id="ContactForm-body"
+            class="text-area field__input"
+            name="contact[{{ 'templates.contact.form.comment' | t }}]"
+            required
+          >
           {{- form.body -}}
         </textarea>
-        <label class="form__label field__label" for="ContactForm-body">
-          {{- 'templates.contact.form.comment' | t -}}
-        </label>
-      </div>
-      <div class="contact__button">
-        <button type="submit" class="button">
-          {{ 'templates.contact.form.send' | t }}
-        </button>
-      </div>
-    {%- endform -%}
+        </div>
+        <div class="custom-field">
+          <label for="ContactForm-file" class="file-upload-button">
+            {{- 'icon-file.svg' | inline_asset_content -}}
+            Attach Files
+          </label>
+          <input
+            type="file"
+            id="ContactForm-file"
+            name="contact[file]"
+            class="file-input"
+            multiple
+            accept="image/*,.pdf,.doc,.docx,.txt"
+          >
+          <p class="file-note">Attach up to 10 files. The maximum allowed size per file is 20 MB.</p>
+          <div class="file-list" id="file-list"></div>
+        </div>
+        <div class="contact__button">
+          <button type="submit" class="button">
+            {{ 'templates.contact.form.send' | t }}
+          </button>
+        </div>
+      {%- endform -%}
+    </div>
   </div>
 </div>
+
+<script>
+  let selectedFiles = [];
+
+  const input = document.getElementById('ContactForm-file');
+  const fileList = document.getElementById('file-list');
+
+  input.addEventListener('change', function (e) {
+    const newFiles = Array.from(e.target.files);
+
+    const totalFiles = selectedFiles.length + newFiles.length;
+    if (totalFiles > 10) {
+      input.value = '';
+      return;
+    }
+
+    for (const file of newFiles) {
+      if (!selectedFiles.find((f) => f.name === file.name)) {
+        selectedFiles.push(file);
+      }
+    }
+
+    input.value = '';
+    renderFiles();
+  });
+
+  function renderFiles() {
+    fileList.innerHTML = selectedFiles
+      .map(
+        (file, index) => `
+        <div class="file-item">
+          <span class="file-name">${file.name}</span>
+          <button type="button" class="file-remove" onclick="removeFile(${index})">&times;</button>
+        </div>`
+      )
+      .join('');
+  }
+
+  function removeFile(index) {
+    selectedFiles.splice(index, 1);
+    renderFiles();
+  }
+</script>
 
 {% schema %}
 {
