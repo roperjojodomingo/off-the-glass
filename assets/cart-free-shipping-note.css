@@ -1,0 +1,42 @@
+.free-shipping-container {
+  width: 100%;
+  height: 100;
+  padding-bottom: 2rem;
+  margin: 0 1rem;
+}
+
+.free-shipping-add-more-message {
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.free-shipping-message {
+  color: #10b981;
+  font-size: 1.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.free-shipping-message svg {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.free-shipping-threshold-info {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remaining_amount,
+.free_shipping_threshold {
+  font-weight: 700;
+}

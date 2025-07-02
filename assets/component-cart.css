@@ -220,3 +220,8 @@ cart-items {
     gap: 1rem;
   }
 }
+
+.cart-quantity-input:after {
+  box-shadow: unset !important;
+  border-bottom: 1px solid rgba(55, 55, 55, 0.25);
+}

@@ -49,6 +49,12 @@
           "type": "description",
           "settings": {}
         },
+        "free_shipping_PgHiAL": {
+          "type": "free_shipping",
+          "settings": {
+            "text": "Free Shipping on Orders Over"
+          }
+        },
         "complementary_h9jUag": {
           "type": "complementary",
           "settings": {
@@ -71,6 +77,7 @@
         "quantity_selector",
         "buy_buttons",
         "description",
+        "free_shipping_PgHiAL",
         "complementary_h9jUag"
       ],
       "settings": {

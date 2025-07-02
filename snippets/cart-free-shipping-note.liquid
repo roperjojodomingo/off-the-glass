@@ -1,0 +1,20 @@
+{{ 'cart-free-shipping-note.css' | asset_url | stylesheet_tag }}
+{% assign threshold_cents = free_shipping_threshold | times: 100 | round %}
+{% assign difference = threshold_cents | minus: cart.total_price %}
+
+<div class="free-shipping-container" id="CartFreeShippingNote">
+  {% if difference > 0 %}
+    <div class="free-shipping-add-more-message">
+      Spend <span class="remaining_amount">{{ difference | money }}</span> more to get free shipping!
+    </div>
+  {% else %}
+    <div class="free-shipping-message">
+      {{- 'icon-success-2.svg' | inline_asset_content -}}
+      You qualify for free shipping!
+    </div>
+  {% endif %}
+  <div class="free-shipping-threshold-info">
+    {{- 'icon-shipping.svg' | inline_asset_content -}}
+    &nbsp;Free shipping on orders over&nbsp;<span class="free_shipping_threshold"> {{ threshold_cents | money }}</span>
+  </div>
+</div>

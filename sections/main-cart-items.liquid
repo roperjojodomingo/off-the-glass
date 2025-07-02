@@ -51,6 +51,12 @@
     <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
       <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
         <div class="js-contents">
+          {%- if cart != empty and settings.free_shipping_threshold -%}
+            {% render 'cart-free-shipping-note',
+              free_shipping_threshold: settings.free_shipping_threshold,
+              cart_total: cart.total_price
+            %}
+          {% endif %}
           {%- if cart != empty -%}
             <table class="cart-items">
               <caption class="visually-hidden">

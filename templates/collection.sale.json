@@ -12,7 +12,7 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
-        "heading": "All {{ collection.title }}",
+        "heading": "{{ collection.title }}",
         "color_scheme": "scheme-ac653d6b-bc10-4d34-9808-7690828bf116"
       }
     },

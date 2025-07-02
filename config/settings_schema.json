@@ -1449,7 +1449,13 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
-      }
+      },
+      {
+        "type": "text",
+        "id": "free_shipping_threshold",
+         "label": "Free shipping threshold",
+          "default": "3000"
+      },
     ]
   }
 ]

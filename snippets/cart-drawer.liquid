@@ -74,6 +74,12 @@
           </span>
         </button>
       </div>
+      {%- if cart != empty and settings.free_shipping_threshold -%}
+        {% render 'cart-free-shipping-note',
+          free_shipping_threshold: settings.free_shipping_threshold,
+          cart_total: cart.total_price
+        %}
+      {% endif %}
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
