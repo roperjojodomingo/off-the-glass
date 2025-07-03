@@ -72,3 +72,12 @@
 .padded-collection-list-header {
   padding: 0 32px;
 }
+
+.padded-full-width {
+  width: 100%;
+  padding: 1rem 3rem 5rem 3rem;
+}
+
+.custom-collection-heading {
+  padding: 1rem;
+}

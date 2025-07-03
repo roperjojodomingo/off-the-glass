@@ -50,7 +50,7 @@
         {% if extend_height %} card--extend-height{% endif %}
         {% if card_product.featured_media == nil and settings.card_style == 'card' %} ratio{% endif %}
         {% if horizontal_class %} card--horizontal{% endif %}
-          {% if is_recommended %} recommended-colored-bg{% endif %}
+          {% if is_recommended %} recommended-colored-bg {% endif %}
       "
       style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
     >
@@ -145,7 +145,7 @@
         </div>
       </div>
       <div class="card__content {% if is_recommended %} recommendation_content_padding{%  endif %}">
-        <div class="card__information">
+        <div class="card__information {% if is_recommended %} card__information__no_border{%  endif %}">
           <h3
             class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}{% if is_recommended %} product-text-left-aligned{% endif %}"
             {% if card_product.featured_media or settings.card_style == 'card' %}

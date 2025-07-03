@@ -12,7 +12,7 @@
     "main": {
       "type": "main-list-collections",
       "settings": {
-        "title": "Shop by your favorite team",
+        "title": "<strong>Shop by your favorite team</strong>",
         "sort": "products_high",
         "image_ratio": "square",
         "columns_desktop": 4,

@@ -1,6 +1,6 @@
 {{ 'section-featured-products.css' | asset_url | stylesheet_tag }}
 
-<div class="featured-products-container color-{{ section.settings.color_scheme }}">
+<div class="featured-products-container color-{{ section.settings.color_scheme }} scroll-trigger animate--slide-in">
   <div class="featured-products-wrapper">
     {% for block in section.blocks %}
       {% render block %}

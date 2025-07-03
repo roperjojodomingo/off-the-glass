@@ -1,6 +1,6 @@
 {{ 'section-text-with-logo.css' | asset_url | stylesheet_tag }}
 
-<div class="section-text-with-logo-container color-{{ section.settings.color_scheme }}">
+<div class="section-text-with-logo-container color-{{ section.settings.color_scheme }} scroll-trigger animate--slide-in">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when 'image_picker' -%}

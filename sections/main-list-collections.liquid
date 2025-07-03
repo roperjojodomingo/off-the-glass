@@ -1,8 +1,29 @@
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
 
-<div class="page-width">
-  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+{% style %}
+  .custom-collection-grid {
+    display: grid;
+    grid-template-columns: repeat({{section.settings.columns_desktop}}, 1fr);
+    column-gap: 1.5rem;
+    padding: 0;
+    list-style: none;
+  }
+  .custom-collection-grid li {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 767px) {
+    .custom-collection-grid {
+      grid-template-columns: repeat({{section.settings.columns_mobile}}, 1fr);
+    }
+  }
+{% endstyle %}
+
+<div class="padded-full-width">
+  <h1 class="title title--primary inline-richtext{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %} centered-title">
     {{ section.settings.title }}
   </h1>
   {%- liquid
@@ -19,13 +40,13 @@
   -%}
 
   <ul
-    class="collection-list grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+    class="collection-list custom-collection-grid"
     role="list"
   >
     {%- for collection in collections -%}
       {% if collection.metafields.custom.is_team %}
         <li
-          class="collection-list__item grid__item{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          class="collection-list__item {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
             style="--animation-order: {{ forloop.index }};"
