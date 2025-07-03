@@ -92,7 +92,7 @@
       {%- endif -%}
       <div class="tab-container">
         {% if collection_1 %}
-          <button class="tablinks" onclick="openCollection(event, 'tab-1')" id="defaultOpen">
+          <button class="tablinks active" onclick="openCollection(event, 'tab-1')" id="defaultOpen">
             {{ collection_1.title }}
           </button>
         {% endif %}
@@ -109,7 +109,7 @@
       </div>
     </div>
     {% if collection_1 %}
-      <div id="tab-1" class="tabcontent" style="display: none;">
+      <div id="tab-1" class="tabcontent">
         {% render 'featured-collection-products',
           current_collection: section.settings.collection_1,
           full_width: section.settings.full_width,

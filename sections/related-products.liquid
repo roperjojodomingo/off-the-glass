@@ -20,43 +20,74 @@
   }
 {%- endstyle -%}
 
+{% assign recently_viewed = null %}
+
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <product-recommendations
-    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    class="related-products  section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
     data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
     data-section-id="{{ section.id }}"
     data-product-id="{{ product.id }}"
   >
+    <div class="tab-container">
+      <button class="tablinks active" onclick="openCollection(event, 'tab-1')" id="defaultOpen">
+        Related products
+      </button>
+      {% if recently_viewed != blank %}
+        <button class="tablinks" onclick="openCollection(event, 'tab-2')">Recently viewed</button>
+      {% endif %}
+    </div>
     {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
-        {{ section.settings.heading }}
-      </h2>
-      <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-        role="list"
-      >
-        {% assign skip_card_product_styles = false %}
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              skip_styles: skip_card_product_styles
-            %}
-          </li>
-          {%- assign skip_card_product_styles = true -%}
-        {% endfor %}
-      </ul>
+      <div id="tab-1" class="tabcontent">
+        <ul
+          class="grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
+          role="list"
+        >
+          {% assign skip_card_product_styles = false %}
+          {% for recommendation in recommendations.products %}
+            <li class="grid__item">
+              {% render 'card-product',
+                card_product: recommendation,
+                media_aspect_ratio: section.settings.image_ratio,
+                image_shape: section.settings.image_shape,
+                show_secondary_image: section.settings.show_secondary_image,
+                show_vendor: section.settings.show_vendor,
+                show_rating: section.settings.show_rating,
+                skip_styles: skip_card_product_styles
+              %}
+            </li>
+            {%- assign skip_card_product_styles = true -%}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    {% if recently_viewed != blank %}
+      <div id="tab-2" class="tabcontent" style="display: none;">
+        <h3>TODO</h3>
+      </div>
     {% endif %}
   </product-recommendations>
   {% if section.settings.image_shape == 'arch' %}
     {{ 'mask-arch.svg' | inline_asset_content }}
   {%- endif -%}
 </div>
+
+<script>
+  function openCollection(evt, tabId) {
+    document.querySelectorAll('.tabcontent').forEach((el) => (el.style.display = 'none'));
+    document.querySelectorAll('.tablinks').forEach((btn) => btn.classList.remove('active'));
+
+    const selectedTab = document.getElementById(tabId);
+    if (selectedTab) selectedTab.style.display = 'block';
+
+    evt.currentTarget.classList.add('active');
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const defaultBtn = document.getElementById('defaultOpen');
+    if (defaultBtn) defaultBtn.click();
+  });
+</script>
 
 {% schema %}
 {
@@ -134,7 +165,7 @@
           "value": "2",
           "label": "t:sections.related-products.settings.columns_mobile.options__2.label"
         }
-      ]    
+      ]
     },
     {
       "type": "color_scheme",
